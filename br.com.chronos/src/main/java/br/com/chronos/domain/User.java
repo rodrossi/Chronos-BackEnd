@@ -43,7 +43,9 @@ public class User {
 		this.active = active;
 	}
 	
-	
+	public void toggleStatus(boolean status) {
+		this.active = status;
+	}
 
 }
 
