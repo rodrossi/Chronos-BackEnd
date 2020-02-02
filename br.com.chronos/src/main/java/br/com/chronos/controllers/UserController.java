@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.chronos.domain.User;
+import br.com.chronos.dtos.models.UserItemModel;
 import br.com.chronos.dtos.models.UserListModel;
 import br.com.chronos.services.UserService;
 
@@ -34,8 +35,9 @@ public class UserController {
 										  @RequestBody boolean status){
 		
 		User user = userService.toggleUserStatus(id, status);
+		UserItemModel model = UserItemModel.of(user);
 		
-		return ResponseEntity.ok(user);
+		return ResponseEntity.ok(model);
 		
 	}
 
