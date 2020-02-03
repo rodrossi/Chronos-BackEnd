@@ -22,7 +22,7 @@ public class UserService {
 	}
 	
 	public User consultById(String id) {
-		return userRepository.findById(id).orElseThrow(() -> new NotFoundException("Nenhum usuario cadastrado"));
+		return userRepository.findById(id).orElseThrow(() -> new NotFoundException("Nenhum usuário cadastrado"));
 		
 	}
 
