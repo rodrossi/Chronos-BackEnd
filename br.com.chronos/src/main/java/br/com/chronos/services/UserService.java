@@ -3,7 +3,6 @@ package br.com.chronos.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
 
 import br.com.chronos.domain.User;
@@ -32,5 +31,4 @@ public class UserService {
 		user.update(command);
 		return userRepository.save(user);
 	}
-
 }
