@@ -14,14 +14,14 @@ public class UserService {
 
 	@Autowired
 	private UserRepository userRepository;
-
+	
 	public List<User> list() {
-		
+
 		return userRepository.findAll();
 	}
 
 	public User insert(UserInsertCommand command) {
-		
+
 		User user = new User(command);
 		return userRepository.save(user);
 	}
