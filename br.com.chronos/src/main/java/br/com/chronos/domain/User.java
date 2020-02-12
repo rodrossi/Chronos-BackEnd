@@ -49,10 +49,14 @@ public class User {
 
 	public void update(UserUpdateCommand command) {
 		
-		this.name = command.getName();
-		this.email = command.getEmail();
-		this.phone = command.getPhone();
-		this.active = command.getActive();
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.active = active;
+	}
+	
+	public void toggleStatus(boolean status) {
+		this.active = status;
 	}
 
 }

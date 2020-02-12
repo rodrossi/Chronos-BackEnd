@@ -4,23 +4,44 @@ import br.com.chronos.domain.User;
 
 public class UserItemModel {
 
-	private String idUser;
-	private String nameUser;
-
-	public String getIdUser() {
-		return idUser;
+	private String id;
+	private String name;
+	private String email;
+	private String phone;
+	private boolean active;
+	
+	public String getId() {
+		return id;
 	}
-
-	public String getNameUser() {
-		return nameUser;
+	
+	public String getName() {
+		return name;
 	}
-
-	public static UserItemModel of(User users) {
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public String getPhone() {
+		return phone;
+	}
+	
+	public boolean isActive() {
+		return active;
+	}
+	
+	public static UserItemModel of(User user) {
+		
 		UserItemModel model = new UserItemModel();
-
-		model.idUser = users.getId();
-		model.nameUser = users.getName();
-
+		
+		model.id = user.getId();
+		model.name = user.getName();
+		model.email = user.getEmail();
+		model.phone = user.getPhone();
+		model.active = user.isActive();
+		
 		return model;
+		
 	}
+	
 }

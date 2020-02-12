@@ -21,6 +21,15 @@ public class UserService {
 
 		return userRepository.findAll();
 	}
+	
+	public User toggleUserStatus(String id, boolean status) {
+		
+		User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+		user.toggleStatus(status);
+		
+		return userRepository.save(user);
+		
+	}
 
 	public User insert(UserInsertCommand command) {
 
