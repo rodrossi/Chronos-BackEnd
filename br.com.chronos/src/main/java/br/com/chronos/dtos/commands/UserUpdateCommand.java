@@ -24,8 +24,7 @@ public class UserUpdateCommand {
 		return phone;
 	}
 
-	public boolean getActive() {
+	public boolean isActive() {
 		return active;
 	}
-
 }

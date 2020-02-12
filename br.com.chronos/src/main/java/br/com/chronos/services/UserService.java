@@ -3,6 +3,7 @@ package br.com.chronos.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import br.com.chronos.domain.User;
@@ -27,8 +28,7 @@ public class UserService {
 		User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 		user.toggleStatus(status);
 		
-		return userRepository.save(user);
-		
+		return userRepository.save(user);	
 	}
 
 	public User insert(UserInsertCommand command) {
@@ -37,15 +37,16 @@ public class UserService {
 		return userRepository.save(user);
 	}
 
-        public User consultById(String id) {
+	public User consultById(String id) {
+		
 		return userRepository.findById(id).orElseThrow(() -> new NotFoundException("Nenhum usuario cadastrado"));
-
 	}
 
 	public User update(String id, UserUpdateCommand command) {
+		
 		User user = consultById(id);
 		user.update(command);
+		
 		return userRepository.save(user);
 	}
 }
-
