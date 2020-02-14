@@ -4,7 +4,9 @@ import org.springframework.data.annotation.Id;
 
 import br.com.chronos.dtos.commands.UserInsertCommand;
 import br.com.chronos.dtos.commands.UserUpdateCommand;
+import lombok.Getter;
 
+@Getter
 public class User {
 
 	@Id
@@ -13,26 +15,7 @@ public class User {
 	private String email;
 	private String phone;
 	private boolean active;
-
-	public String getId() {
-		return id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public boolean isActive() {
-		return active;
-	}
+	private String password;
 
 	protected User() {
 
@@ -59,4 +42,5 @@ public class User {
 		
 		this.active = status;
 	}
+
 }

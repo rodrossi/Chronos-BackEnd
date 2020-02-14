@@ -1,7 +1,9 @@
 package br.com.chronos.dtos.models;
 
 import br.com.chronos.domain.User;
+import lombok.Getter;
 
+@Getter
 public class UserItemModel {
 
 	private String id;
@@ -9,26 +11,6 @@ public class UserItemModel {
 	private String email;
 	private String phone;
 	private boolean active;
-
-	public String getId() {
-		return id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public boolean isActive() {
-		return active;
-	}
 
 	public static UserItemModel of(User user) {
 	
@@ -43,4 +25,3 @@ public class UserItemModel {
 		return model;
 	}	
 }
-

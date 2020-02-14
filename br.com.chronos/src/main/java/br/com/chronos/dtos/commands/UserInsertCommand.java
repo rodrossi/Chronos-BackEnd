@@ -2,6 +2,9 @@ package br.com.chronos.dtos.commands;
 
 import javax.validation.constraints.NotBlank;
 
+import lombok.Getter;
+
+@Getter
 public class UserInsertCommand {
 
 	@NotBlank(message = "Name must be informed")
@@ -12,17 +15,4 @@ public class UserInsertCommand {
 
 	@NotBlank(message = "Phone must be informed")
 	private String phone;
-
-	public String getName() {
-		return name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
 }

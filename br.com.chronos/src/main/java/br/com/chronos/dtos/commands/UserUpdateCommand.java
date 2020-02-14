@@ -2,29 +2,19 @@ package br.com.chronos.dtos.commands;
 
 import javax.validation.constraints.NotBlank;
 
+import lombok.Getter;
+
+@Getter
 public class UserUpdateCommand {
 
-	private String name;
-	private String email;
-	private String phone;
-	private boolean active;
-
 	@NotBlank(message = "Nome deve ser informado")
-	public String getName() {
-		return name;
-	}
+	private String name;
 
 	@NotBlank(message = "E-mail deve ser informado")
-	public String getEmail() {
-		return email;
-	}
+	private String email;
 
 	@NotBlank(message = "Telefone deve ser informado")
-	public String getPhone() {
-		return phone;
-	}
-
-	public boolean isActive() {
-		return active;
-	}
+	private String phone;
+	
+	private boolean active;
 }

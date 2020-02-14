@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import br.com.chronos.domain.User;
+import lombok.Getter;
 
+@Getter
 public class UserListModel {
 	
 	private String id;
@@ -12,26 +14,6 @@ public class UserListModel {
 	private String email;
 	private String phone;
 	private boolean active;
-	
-	public String getId() {
-		return id;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
-	
-	public String getPhone() {
-		return phone;
-	}
-	
-	public boolean isActive() {
-		return active;
-	}
 	
 	private static UserListModel of(User user) {
 		
@@ -50,5 +32,4 @@ public class UserListModel {
 		
 		return users.stream().map(user -> of(user)).collect(Collectors.toList());
 	}
-
 }
