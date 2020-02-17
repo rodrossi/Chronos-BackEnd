@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.chronos.domain.User;
@@ -20,14 +21,19 @@ import br.com.chronos.dtos.commands.UserUpdateCommand;
 import br.com.chronos.dtos.models.UserItemModel;
 import br.com.chronos.dtos.models.UserListModel;
 import br.com.chronos.services.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
+@Api(value="Chronos API REST")
 @RestController
+@RequestMapping("users")
 public class UserController {
 
 	@Autowired
 	private UserService userService;
 
-	@PostMapping("users")
+	@ApiOperation(value="Cadastra um novo usuário")
+	@PostMapping()
 	public ResponseEntity<?> insertUser(@Valid 
                                         @RequestBody UserInsertCommand command) {
 
@@ -36,7 +42,8 @@ public class UserController {
 		return ResponseEntity.ok(user);
 	}
 
-	@GetMapping("users")
+	@ApiOperation(value="Lista todos os usuários cadastrados")
+	@GetMapping()
 	public ResponseEntity<?> list() {
 
 		List<User> users = userService.list();
@@ -45,7 +52,7 @@ public class UserController {
 		return ResponseEntity.ok(model);
 	}
 
-	@GetMapping("users/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<?> consultById(@PathVariable(name = "id") String id) {
 
 		User users = userService.consultById(id);
@@ -54,7 +61,7 @@ public class UserController {
 		return ResponseEntity.ok(model);
 	}
 
-	@PutMapping("users/{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<?> update(@PathVariable(name = "id") String id,
                                     @Valid 
                                     @RequestBody UserUpdateCommand command) {
@@ -64,7 +71,7 @@ public class UserController {
 		return ResponseEntity.ok(user);
 	}
 
-	@PatchMapping("users/{id}")
+	@PatchMapping("/{id}")
 	public ResponseEntity<?> toggleStatus(@PathVariable(name = "id") String id, 
                                           @RequestBody boolean status) {
 
@@ -74,3 +81,4 @@ public class UserController {
 		return ResponseEntity.ok(model);
 	}
 }
+
